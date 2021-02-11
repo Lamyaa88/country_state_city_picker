@@ -142,56 +142,57 @@ class _SelectStateState extends State<SelectState> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        DropdownButton<String>(
-          dropdownColor: widget.dropdownColor,
-          isExpanded: true,
-          items: _country.map((String dropDownStringItem) {
-            return DropdownMenuItem<String>(
-              value: dropDownStringItem,
-              child: Row(
-                children: [
-                  Text(
-                    dropDownStringItem,
-                    style: widget.style,
-                  )
-                ],
-              ),
-            );
-          }).toList(),
-          onChanged: (value) => _onSelectedCountry(value),
-          value: _selectedCountry,
-        ),
-        DropdownButton<String>(
-          dropdownColor: widget.dropdownColor,
-          isExpanded: true,
-          items: _states.map((String dropDownStringItem) {
-            return DropdownMenuItem<String>(
-              value: dropDownStringItem,
-              child: Text(dropDownStringItem, style: widget.style),
-            );
-          }).toList(),
-          onChanged: (value) => _onSelectedState(value),
-          value: _selectedState,
-        ),
-        DropdownButton<String>(
-          dropdownColor: widget.dropdownColor,
-          isExpanded: true,
-          items: _cities.map((String dropDownStringItem) {
-            return DropdownMenuItem<String>(
-              value: dropDownStringItem,
-              child: Text(dropDownStringItem, style: widget.style),
-            );
-          }).toList(),
-          onChanged: (value) => _onSelectedCity(value),
-          value: _selectedCity,
-        ),
-        SizedBox(
-          height: 10.0,
-        ),
-      ],
+    return Container(
+      color: Color(0xff00048f),
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          DropdownButton<String>(
+            dropdownColor:Color(0xff00048f),
+            isExpanded: true,
+            items: _country.map((String dropDownStringItem) {
+              return DropdownMenuItem<String>(
+                value: dropDownStringItem,
+                child: Row(
+                  children: [Text(dropDownStringItem ,style: TextStyle(color: Colors.white,fontSize: 10),)],
+                ),
+              );
+            }).toList(),
+            onChanged: (value) => _onSelectedCountry(value),
+            value: _selectedCountry,
+          ),
+          DropdownButton<String>(
+            dropdownColor: Color(0xff00048f),
+            isExpanded: true,
+            items: _states.map((String dropDownStringItem) {
+              return DropdownMenuItem<String>(
+                value: dropDownStringItem,
+                child: Text(dropDownStringItem ,style: TextStyle(color:Colors.white,fontSize: 10),),
+              );
+            }).toList(),
+            // onChanged: (value) => print(value),
+            onChanged: (value) => _onSelectedState(value),
+            value: _selectedState,
+          ),
+          DropdownButton<String>(
+            dropdownColor: Color(0xff00048f),
+            isExpanded: true,
+            items: _cities.map((String dropDownStringItem) {
+              return DropdownMenuItem<String>(
+                value: dropDownStringItem,
+                child: Text(dropDownStringItem,style: TextStyle(color:Colors.white,fontSize: 10),),
+              );
+            }).toList(),
+            // onChanged: (value) => print(value),
+            onChanged: (value) => _onSelectedCity(value),
+            value: _selectedCity,
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+        ],
+      ),
     );
   }
 }
